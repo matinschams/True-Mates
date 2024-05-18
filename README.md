@@ -1,42 +1,24 @@
-# True-Mates Challenge
+# Requirements 3
 
-## Summary
+1. **Friendship Adding**:
 
-I have gone through the set of criteria for each requirement listed and created
-their respective branches. In each branch there is a README describing what
-features have been implemented. I was not able to finish all the requirements
-for number 3, due to my current weeks time constraint and dev issue but I merged
-all my so far completion to the main branch.
+   - Create a `Friendship` model to track friendships between users.
+   - Add routes and controller methods for adding friends using friendId and
+     userId
+   - Create two entries in the `Friendship` table, one for each direction of the
+     friendship (user to friend and friend to user). Also make sure that we
+     cannot add the same friend again.
 
-## Run with Docker
+2. **Pagination for Posts**:
 
-Follow the steps below to get the application running
+   -Get the page and limit query parameters to determine the subset of posts to
+   retrieve. Use `findAndCountAll` method from Sequelize to fetch the total
+   count and the paginated posts, while the limit and offset options specified
+   the number of posts per page and the starting index
 
-1. `docker-compose up --build`
+3. **Friends List with Mutual Friends Count**:
 
-Copy env. example file and fill in your values
-
-2. `cp .env.example .env`
-
-Run database migrations
-
-3. `docker-compose exec app npx sequelize-cli db:migrate`
-
-You are ready !
-
-## Screenshots
-
-1. **Register**: ![Register](https://i.imgur.com/9VO6beg.png)
-
-2. **Login**: ![Login](https://i.imgur.com/3x3PMGq.png)
-
-3. **Multiple Photos**: ![Multiple Photos](https://i.imgur.com/BGMO5qT.png)
-
-4. **Create Post**: ![Create Post](https://i.imgur.com/GhdIKTh.png)
-
-5. **Timestamp**: ![Timestamp](https://i.imgur.com/SFspYGE.png)
-
-6. **Edit Post**: ![Edit Post](https://i.imgur.com/EcJKRkD.png)
-
-7. **Add Friend Request**:
-   ![Add Friend Request](https://i.imgur.com/hIst1k0.png)
+   - Query the Friendship table by userId and retrieves details of friends with
+     the User model (ID, name, email)
+   - Using the `userId` and `friendId`, we can identify the friendship between
+     users and map through those friends to find mutuals
