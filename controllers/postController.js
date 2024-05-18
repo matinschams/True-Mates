@@ -88,12 +88,26 @@ module.exports = {
 
   getPosts: async (req, res, next) => {
     try {
-      const posts = await Post.findAll();
-      const postsWithTimeDiff = posts.map(post => {
+      const { page = 1, limit = 10 } = req.query;
+      const offset = (page - 1) * limit;
+
+      const posts = await Post.findAndCountAll({
+        limit: parseInt(limit),
+        offset: parseInt(offset),
+        order: [['createdAt', 'DESC']],
+      });
+
+      const postsWithTimeDiff = posts.rows.map(post => {
         const timeDiff = getTimeDifference(post.createdAt);
         return { ...post.toJSON(), timeDiff };
       });
-      res.json(postsWithTimeDiff);
+
+      res.json({
+        totalItems: posts.count,
+        totalPages: Math.ceil(posts.count / limit),
+        currentPage: page,
+        posts: postsWithTimeDiff,
+      });
     } catch (error) {
       return next({
         log: `Error found in postController.getPosts ${error}`,
