@@ -2,7 +2,7 @@ const express = require('express');
 const userRoutes = require('./routes/userRoutes');
 const postRoutes = require('./routes/postRoutes');
 const bodyParser = require('body-parser');
-const friendshipRoutes = require('./routes/friendship');
+const friendshipRoutes = require('./routes/friendshipRoutes');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
