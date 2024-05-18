@@ -4,7 +4,6 @@ const { Model } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
   class User extends Model {
     static associate(models) {
-      // Correct associations with aliases
       User.belongsToMany(models.User, {
         as: 'Friends',
         through: models.Friendship,
