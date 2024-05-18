@@ -2,13 +2,29 @@
 
 ## Summary
 
-I have gone through the set of criteria for each requirement listed and created
-their respective branches. In each branch there is a README describing what
-features have been implemented. I was not able to finish all the requirements
-for number 3, due to my current weeks time constraint and dev issue but I merged
-all my so far completion to the main branch.
+All requirements have been completed and seperated into their own feature
+branches. All screenshots of functionality are in the main branch README file
+and the feature branches hold a README file of feature implementation.
 
-## Run with Docker
+## Startup
+
+Install all dependencies
+
+1. `npm install`
+
+Copy the env file and fill in your own information
+
+2. `cp .env.example .env`
+
+Start the node server
+
+3. `npm start`
+
+You are ready !
+
+## Run with Docker (Temporarily Removed: Follow Alternative Instructions)
+
+**TEMPORARILY REMOVED DOCKER METHOD**
 
 Follow the steps below to get the application running
 
@@ -40,3 +56,7 @@ You are ready !
 
 7. **Add Friend Request**:
    ![Add Friend Request](https://i.imgur.com/hIst1k0.png)
+
+8. **Friends List**: ![Friends List](https://i.imgur.com/YRZbT7N.png)
+
+9. **Pagination**: ![Pagination](https://i.imgur.com/NaiC93q.png)
