@@ -5,7 +5,7 @@
    - Created a `Friendship` model to track friendships between users.
    - Added routes and controller methods for adding friends using friendId and
      userId
-   - Starting building out associations for friends list
+   - Started building out associations for friends list
 
 2. **Pagination for Posts**:
 
