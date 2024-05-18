@@ -1,5 +1,6 @@
 const express = require('express');
 const userRoutes = require('./routes/userRoutes');
+const postRoutes = require('./routes/postRoutes');
 const bodyParser = require('body-parser');
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -7,6 +8,7 @@ const PORT = process.env.PORT || 3000;
 app.use(bodyParser.json());
 
 app.use('/api/user', userRoutes);
+app.use('/api/posts', postRoutes);
 
 app.use((err, req, res, next) => {
   const globalError = {
